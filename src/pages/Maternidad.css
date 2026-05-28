@@ -1,0 +1,332 @@
+.maternidad-header .page-header__orb {
+  background: radial-gradient(circle, var(--sage-light) 0%, transparent 70%);
+}
+
+/* ── ETAPAS ── */
+.etapas {
+  padding: 100px 0;
+  background: white;
+}
+
+.etapas__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.etapas__intro {
+  margin-bottom: 72px;
+  max-width: 500px;
+}
+
+.etapas__intro h2 {
+  font-size: clamp(2rem, 3vw, 2.8rem);
+  color: var(--text-dark);
+  margin-top: 8px;
+}
+
+.etapas__intro h2 em {
+  color: var(--rose);
+  font-style: italic;
+}
+
+.etapas__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.etapa-item {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 48px;
+  padding: 56px 0;
+  border-bottom: 1px solid var(--sand);
+  transition: var(--transition);
+}
+
+.etapa-item:first-child {
+  border-top: 1px solid var(--sand);
+}
+
+.etapa-item:hover {
+  background: var(--cream);
+  margin: 0 -40px;
+  padding: 56px 40px;
+  border-radius: var(--radius-md);
+  border-color: transparent;
+}
+
+.etapa-item__number {
+  font-family: var(--font-display);
+  font-size: 4rem;
+  font-weight: 300;
+  color: var(--sand);
+  line-height: 1;
+  padding-top: 4px;
+  transition: color 0.3s ease;
+}
+
+.etapa-item:hover .etapa-item__number {
+  color: var(--blush);
+}
+
+.etapa-item__content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.etapa-item__header h3 {
+  font-size: 1.7rem;
+  color: var(--text-dark);
+  margin-bottom: 4px;
+}
+
+.etapa-item__header span {
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--rose);
+}
+
+.etapa-item__text {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.etapa-item__text p {
+  font-size: 0.95rem;
+  line-height: 1.85;
+  color: var(--text-mid);
+}
+
+.etapa-item__tips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.etapa-tip {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  background: var(--cream);
+  border-radius: var(--radius-pill);
+  padding: 6px 14px;
+  font-size: 0.8rem;
+  color: var(--text-mid);
+}
+
+.etapa-item:hover .etapa-tip {
+  background: white;
+}
+
+.etapa-tip span:first-child {
+  color: var(--rose);
+  font-size: 0.6rem;
+}
+
+/* ── RECURSOS ── */
+.recursos {
+  padding: 100px 0;
+  background: var(--cream);
+}
+
+.recursos__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.recursos__header {
+  text-align: center;
+  margin-bottom: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.recursos__header h2 {
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  color: var(--text-dark);
+}
+
+.recursos__header h2 em {
+  color: var(--rose);
+  font-style: italic;
+}
+
+.recursos__header p {
+  font-size: 0.95rem;
+  color: var(--text-mid);
+  max-width: 480px;
+  line-height: 1.7;
+}
+
+.recursos__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.recurso-card {
+  background: white;
+  border-radius: var(--radius-lg);
+  padding: 36px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: var(--transition);
+  box-shadow: var(--shadow-soft);
+}
+
+.recurso-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-hover);
+}
+
+.recurso-card__icon {
+  font-size: 1.8rem;
+  width: 52px;
+  height: 52px;
+  background: var(--sage-light);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.recurso-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  color: var(--text-dark);
+}
+
+.recurso-card p {
+  font-size: 0.875rem;
+  line-height: 1.75;
+  color: var(--text-mid);
+}
+
+/* ── QUOTE ── */
+.maternidad-quote {
+  padding: 100px 0;
+  background: var(--rose);
+}
+
+.maternidad-quote__inner {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 40px;
+  text-align: center;
+}
+
+blockquote {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.maternidad-quote__mark {
+  font-family: var(--font-display);
+  font-size: 6rem;
+  line-height: 0.6;
+  color: rgba(255,255,255,0.3);
+}
+
+blockquote p {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  font-style: italic;
+  font-weight: 300;
+  color: white;
+  line-height: 1.5;
+}
+
+blockquote cite {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-style: normal;
+  color: rgba(255,255,255,0.65);
+  letter-spacing: 0.08em;
+}
+
+/* ── MATERNIDAD CTA ── */
+.maternidad__cta {
+  padding: 100px 0;
+  background: var(--text-dark);
+}
+
+.maternidad__cta-inner {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0 40px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+
+.maternidad__cta-inner h2 {
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  color: var(--warm-white);
+}
+
+.maternidad__cta-inner h2 em {
+  color: var(--blush);
+  font-style: italic;
+}
+
+.maternidad__cta-inner p {
+  color: var(--text-light);
+  font-size: 1rem;
+}
+
+.maternidad__cta-btns {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 4px;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1024px) {
+  .recursos__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .etapas__inner,
+  .recursos__inner,
+  .maternidad-quote__inner,
+  .maternidad__cta-inner {
+    padding: 0 24px;
+  }
+
+  .etapa-item {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .etapa-item__number {
+    font-size: 2.5rem;
+  }
+
+  .etapa-item:hover {
+    margin: 0 -24px;
+    padding: 40px 24px;
+  }
+
+  .recursos__grid {
+    grid-template-columns: 1fr;
+  }
+}
