@@ -172,3 +172,14 @@
     margin-top: 8px;
   }
 }
+
+.navbar__logo-img {
+  height: 100px;
+  width: auto;
+  display: block;
+  transition: var(--transition);
+}
+
+.navbar--scrolled .navbar__logo-img {
+  height: 80px;
+}

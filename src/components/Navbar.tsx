@@ -16,8 +16,7 @@ export default function Navbar() {
     <nav className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}>
       <div className="navbar__inner">
         <Link to="/" className="navbar__logo">
-          <span className="navbar__logo-icon">✦</span>
-          <span className="navbar__logo-text">AlbaDoulaNacer</span>
+          <img src="/logo.png" alt="Alba Doula Nacer" className="navbar__logo-img" />
         </Link>
 
         <ul className={`navbar__links ${menuOpen ? 'navbar__links--open' : ''}`}>
