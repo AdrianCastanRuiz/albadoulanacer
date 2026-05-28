@@ -28,15 +28,15 @@ export default function Footer() {
           <ul>
             <li>
               <span>📍</span>
-              <span>Barcelona, España</span>
+              <span>Ibiza, España</span>
             </li>
             <li>
               <span>📞</span>
-              <span>+34 600 000 000</span>
+              <span>+34 670 52 13 58</span>
             </li>
             <li>
               <span>✉️</span>
-              <span>hola@dulceorigen.com</span>
+              <span>castanibiza@gmail.com</span>
             </li>
           </ul>
         </div>

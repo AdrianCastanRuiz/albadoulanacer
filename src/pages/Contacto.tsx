@@ -75,14 +75,14 @@ export default function Contacto() {
                   <div className="contacto__info-icon">📞</div>
                   <div>
                     <strong>Teléfono</strong>
-                    <span>+34 600 000 000</span>
+                    <span>+34 670 52 13 58</span>
                   </div>
                 </div>
                 <div className="contacto__info-item">
                   <div className="contacto__info-icon">✉️</div>
                   <div>
                     <strong>Email</strong>
-                    <span>hola@dulceorigen.com</span>
+                    <span>castanibiza@gmail.com</span>
                   </div>
                 </div>
                 <div className="contacto__info-item">

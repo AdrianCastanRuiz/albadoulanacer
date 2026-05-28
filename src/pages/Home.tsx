@@ -126,6 +126,8 @@ export default function Home() {
             <p>
               Somos un equipo de matronas, doulas y especialistas en lactancia con más de una década
               acompañando familias. Creemos que cada parto es único y que cada mamá merece sentirse
+              vista, escuchada y respetada. Somos un equipo de matronas, doulas y especialistas en lactancia con más de una década
+              acompañando familias. Creemos que cada parto es único y que cada mamá merece sentirse
               vista, escuchada y respetada.
             </p>
             <p>
