@@ -7,8 +7,8 @@ export default function Footer() {
       <div className="footer__inner">
         <div className="footer__brand">
           <div className="footer__logo">
-            <span className="footer__logo-icon">✦</span>
-            <span>AlbaDoulaNacer</span>
+            {/* <span className="footer__logo-icon">✦</span> */}
+          <img src="/logo.png" alt="Alba Doula Nacer" className="navbar__logo-img" />
           </div>
           <p>Acompañándote en cada etapa del camino hacia la maternidad con amor, ciencia y presencia.</p>
         </div>
