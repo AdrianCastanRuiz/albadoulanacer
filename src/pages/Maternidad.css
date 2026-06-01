@@ -224,6 +224,10 @@
   margin: 0 auto;
   padding: 0 40px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
 }
 
 blockquote {
@@ -231,6 +235,7 @@ blockquote {
   flex-direction: column;
   align-items: center;
   gap: 16px;
+  width: 100%;
 }
 
 .maternidad-quote__mark {
@@ -240,13 +245,25 @@ blockquote {
   color: rgba(255,255,255,0.3);
 }
 
-blockquote p {
+.maternidad-quote__text {
   font-family: var(--font-display);
   font-size: clamp(1.4rem, 2.5vw, 2rem);
   font-style: italic;
   font-weight: 300;
   color: white;
   line-height: 1.5;
+  min-height: 3em;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.maternidad-quote__text--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.maternidad-quote__text--hidden {
+  opacity: 0;
+  transform: translateY(12px);
 }
 
 blockquote cite {
@@ -255,6 +272,34 @@ blockquote cite {
   font-style: normal;
   color: rgba(255,255,255,0.65);
   letter-spacing: 0.08em;
+}
+
+/* Dots navigation */
+.maternidad-quote__dots {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.maternidad-quote__dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.35);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.maternidad-quote__dot--active {
+  background: white;
+  width: 22px;
+  border-radius: 4px;
+}
+
+.maternidad-quote__dot:hover:not(.maternidad-quote__dot--active) {
+  background: rgba(255,255,255,0.6);
 }
 
 /* ── MATERNIDAD CTA ── */
