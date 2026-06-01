@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './Contacto.css'
 
 type FormState = {
@@ -26,6 +26,10 @@ export default function Contacto() {
   })
   const [status, setStatus] = useState<Status>('idle')
 
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  })
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setForm(prev => ({ ...prev, [e.target.name]: e.target.value }))
   }
@@ -38,6 +42,8 @@ export default function Contacto() {
     await new Promise(r => setTimeout(r, 1500))
     setStatus('success')
   }
+
+
 
   return (
     <main className="contacto">
