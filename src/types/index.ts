@@ -26,3 +26,11 @@ export type Recurso = {
   title: string
   text: string
 }
+
+export type FormState = {
+  nombre: string
+  email: string
+  telefono: string
+  etapa: string
+  mensaje: string
+}

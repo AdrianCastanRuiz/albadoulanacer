@@ -1,14 +1,16 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
+import emailjs from '@emailjs/browser'
 import './Contacto.css'
 import { useScrollToTop } from '../hooks/useScrollToTop'
+import type { FormState } from '../types'
 
-type FormState = {
-  nombre: string
-  email: string
-  telefono: string
-  etapa: string
-  mensaje: string
-}
+// ─── Configuración EmailJS ───────────────────────────────────────
+// Crea tu cuenta en https://www.emailjs.com y sustituye estos valores
+const EMAILJS_SERVICE_ID  = import.meta.env.VITE_EMAILJS_SERVICE_ID
+const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
+const EMAILJS_PUBLIC_KEY  = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+// ────────────────────────────────────────────────────────────────
+
 
 type Status = 'idle' | 'sending' | 'success' | 'error'
 
@@ -36,17 +38,31 @@ export default function Contacto() {
   const handleSubmit = async (e: React.MouseEvent) => {
     e.preventDefault()
     if (!form.nombre || !form.email || !form.mensaje) return
+
     setStatus('sending')
-    // Simular envío
-    await new Promise(r => setTimeout(r, 1500))
-    setStatus('success')
+
+    try {
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          nombre:   form.nombre,
+          email:    form.email,
+          telefono: form.telefono || 'No indicado',
+          etapa:    form.etapa    || 'No indicada',
+          mensaje:  form.mensaje,
+        },
+        EMAILJS_PUBLIC_KEY
+      )
+      setStatus('success')
+    } catch (error) {
+      console.error('Error al enviar:', error)
+      setStatus('error')
+    }
   }
-
-
 
   return (
     <main className="contacto">
-      {/* Page Header */}
       <section className="page-header contacto-header">
         <div className="page-header__bg">
           <div className="page-header__orb" />
@@ -64,7 +80,6 @@ export default function Contacto() {
       <section className="contacto__body">
         <div className="contacto__inner">
 
-          {/* Info lateral */}
           <div className="contacto__info">
             <div className="contacto__info-block">
               <p className="section-tag">Dónde encontrarnos</p>
@@ -91,11 +106,11 @@ export default function Contacto() {
                   </div>
                 </div>
                 <div className="contacto__info-item">
-                  <div className="contacto__info-icon">🕐</div>
-                  <div>
+                  {/* <div className="contacto__info-icon">🕐</div> */}
+                  {/* <div>
                     <strong>Horario</strong>
                     <span>Lun–Vie de 9h a 19h</span>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>
@@ -115,7 +130,6 @@ export default function Contacto() {
             </div>
           </div>
 
-          {/* Formulario */}
           <div className="contacto__form-wrap">
             {status === 'success' ? (
               <div className="contacto__success">
@@ -136,6 +150,12 @@ export default function Contacto() {
               <div className="contacto__form">
                 <h2>Escríbenos</h2>
                 <p>Rellena el formulario y te contactamos pronto.</p>
+
+                {status === 'error' && (
+                  <div className="form__error-banner">
+                    ⚠️ Ha habido un error al enviar el mensaje. Por favor inténtalo de nuevo o escríbenos directamente a <strong>castanibiza@gmail.com</strong>
+                  </div>
+                )}
 
                 <div className="form__grid">
                   <div className="form__field">
