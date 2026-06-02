@@ -5,7 +5,7 @@ import Home from './pages/Home'
 import Servicios from './pages/Servicios'
 import Maternidad from './pages/Maternidad'
 import Contacto from './pages/Contacto'
-import SobreMi from './pages/temp.tsx'
+import SobreMi from './pages/sobreMi.tsx'
 import './styles/globals.css'
 
 export default function App() {
