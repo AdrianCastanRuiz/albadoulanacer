@@ -34,3 +34,15 @@ export type FormState = {
   etapa: string
   mensaje: string
 }
+
+
+export type Valor = {
+  icon: string
+  label: string
+}
+
+export type Formacion = {
+  year: string
+  titulo: string
+  centro: string
+}
