@@ -1,5 +1,5 @@
 import './SobreMi.css'
-import { useScrollToTop } from '../hooks/useScrollToTop'
+import { useScrollToTop } from '../hooks/useScrollToTop.ts'
 import { Link } from 'react-router-dom'
 import { formacion, valores } from '../constants/sobreMi.ts'
 
