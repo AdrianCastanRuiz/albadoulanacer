@@ -16,6 +16,7 @@ export type Etapa = {
   subtitle: string,
   content: string[],
   tips: string[]    
+  
 }
 
 
