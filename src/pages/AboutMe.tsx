@@ -1,7 +1,7 @@
-import './SobreMi.css'
+import './AboutMe.css'
 import { useScrollToTop } from '../hooks/useScrollToTop.ts'
 import { Link } from 'react-router-dom'
-import { formacion, valores } from '../constants/sobreMi.ts'
+import { formacion, valores } from '../constants/aboutMe.ts'
 
 
 
