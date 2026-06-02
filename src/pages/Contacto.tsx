@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import './Contacto.css'
+import { useScrollToTop } from '../hooks/useScrollToTop'
 
 type FormState = {
   nombre: string
@@ -26,9 +27,7 @@ export default function Contacto() {
   })
   const [status, setStatus] = useState<Status>('idle')
 
-  useEffect(() => {
-    window.scrollTo(0, 0)
-  },[])
+  useScrollToTop()
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setForm(prev => ({ ...prev, [e.target.name]: e.target.value }))
