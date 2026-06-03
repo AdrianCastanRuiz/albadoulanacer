@@ -47,3 +47,9 @@ export type Formacion = {
   titulo: string
   centro: string
 }
+
+export type CookiePreferences = {
+  necesarias: boolean
+  analiticas: boolean
+  marketing: boolean
+}

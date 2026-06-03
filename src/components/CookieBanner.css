@@ -1,0 +1,255 @@
+/* ── CookieBanner.css ─────────────────────────────────────────── */
+
+.cb-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 1.5rem;
+  pointer-events: none;
+}
+
+.cb-banner {
+  pointer-events: all;
+  position: relative;
+  width: 100%;
+  max-width: 680px;
+  background: #fffaf6;
+  border: 1.5px solid #e8d5c0;
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow:
+    0 4px 6px -1px rgba(180, 130, 90, 0.08),
+    0 20px 60px -10px rgba(180, 130, 90, 0.18);
+  overflow: hidden;
+  animation: cb-slide-up 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes cb-slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── Pétalos decorativos ─────────────────────────────── */
+.cb-petal {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.18;
+  pointer-events: none;
+}
+
+.cb-petal-1 {
+  width: 140px;
+  height: 140px;
+  background: radial-gradient(circle, #d4956a, transparent 70%);
+  top: -50px;
+  right: -40px;
+}
+
+.cb-petal-2 {
+  width: 90px;
+  height: 90px;
+  background: radial-gradient(circle, #c8a882, transparent 70%);
+  bottom: -30px;
+  left: 10px;
+}
+
+/* ── Contenido principal ─────────────────────────────── */
+.cb-main {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.cb-icon {
+  font-size: 2rem;
+  line-height: 1;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.cb-title {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #5c3d2e;
+  margin: 0 0 0.4rem;
+  letter-spacing: 0.01em;
+}
+
+.cb-text {
+  font-size: 0.88rem;
+  color: #7a5c48;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.cb-link {
+  color: #b07040;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.cb-link:hover {
+  color: #8a5530;
+}
+
+/* ── Sección personalización ─────────────────────────── */
+.cb-details {
+  border-top: 1px solid #e8d5c0;
+  margin-bottom: 1.5rem;
+  padding-top: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  animation: cb-fade-in 0.3s ease both;
+}
+
+@keyframes cb-fade-in {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.cb-category-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.cb-category-name {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #5c3d2e;
+  margin-bottom: 0.15rem;
+}
+
+.cb-category-desc {
+  display: block;
+  font-size: 0.8rem;
+  color: #9e7a62;
+}
+
+/* ── Toggle switch ───────────────────────────────────── */
+.cb-toggle {
+  flex-shrink: 0;
+  width: 44px;
+  height: 24px;
+  background: #d9c4b0;
+  border: none;
+  border-radius: 100px;
+  cursor: pointer;
+  position: relative;
+  transition: background 0.25s ease;
+  padding: 0;
+}
+
+.cb-toggle--disabled {
+  background: #c9a87a;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.cb-toggle--on {
+  background: #b07040;
+}
+
+.cb-toggle-knob {
+  display: block;
+  width: 18px;
+  height: 18px;
+  background: #fff;
+  border-radius: 50%;
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+}
+
+.cb-toggle--on .cb-toggle-knob {
+  transform: translateX(20px);
+}
+
+/* ── Botones ─────────────────────────────────────────── */
+.cb-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  justify-content: flex-end;
+}
+
+.cb-btn {
+  font-family: inherit;
+  font-size: 0.85rem;
+  padding: 0.55rem 1.1rem;
+  border-radius: 100px;
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.15s;
+  white-space: nowrap;
+  font-weight: 500;
+}
+
+.cb-btn:active {
+  transform: scale(0.97);
+}
+
+.cb-btn--ghost {
+  background: transparent;
+  color: #9e7a62;
+  border-color: transparent;
+}
+
+.cb-btn--ghost:hover {
+  color: #5c3d2e;
+  background: #f3e8db;
+}
+
+.cb-btn--outline {
+  background: transparent;
+  color: #b07040;
+  border-color: #c9a07a;
+}
+
+.cb-btn--outline:hover {
+  background: #f3e8db;
+}
+
+.cb-btn--primary {
+  background: #b07040;
+  color: #fff;
+  border-color: #b07040;
+}
+
+.cb-btn--primary:hover {
+  background: #8a5530;
+  border-color: #8a5530;
+}
+
+/* ── Responsive ──────────────────────────────────────── */
+@media (max-width: 500px) {
+  .cb-banner {
+    padding: 1.4rem;
+    border-radius: 16px;
+  }
+
+  .cb-actions {
+    flex-direction: column;
+  }
+
+  .cb-btn {
+    width: 100%;
+    text-align: center;
+  }
+}
