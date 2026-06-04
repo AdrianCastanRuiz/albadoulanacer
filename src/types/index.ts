@@ -1,8 +1,3 @@
-export type Testimonial = {
-  text: string
-  name: string
-  role: string
-}
 
 export type Highlight = {
   icon: string
@@ -55,6 +50,7 @@ export type CookiePreferences = {
 }
 
 export type Testimonio = {
+  id: string
   nombre: string
   rol: string
   etapa: string

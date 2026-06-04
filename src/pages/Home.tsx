@@ -1,13 +1,34 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { useState, useEffect } from 'react'
 import './Home.css'
-import { highlights, testimonials } from '../constants/home.ts'
+import { highlights } from '../constants/home.ts'
+import { testimonios } from '../constants/testimonios'
 
-
-
+const PER_PAGE = 3
+const INTERVAL = 2000
 
 export default function Home() {
+  const [page, setPage] = useState(0)
+  const [animating, setAnimating] = useState(false)
+  const totalPages = Math.ceil(testimonios.length / PER_PAGE)
+  const visibles = testimonios.slice(page * PER_PAGE, page * PER_PAGE + PER_PAGE)
+
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setAnimating(true)
+      setTimeout(() => {
+        setPage(p => (p + 1) % totalPages)
+        setAnimating(false)
+      }, 500)
+    }, INTERVAL)
+    return () => clearInterval(timer)
+  }, [totalPages])
+
   return (
     <main className="home">
+
       {/* Hero */}
       <section className="hero">
         <div className="hero__bg">
@@ -56,7 +77,7 @@ export default function Home() {
       <section className="highlights">
         <div className="highlights__inner">
           <div className="highlights__header">
-            <p className="section-tag">Lo que ofrecemos</p>
+            <p className="section-tag">Lo que ofrezco</p>
             <h2>Un acompañamiento completo<br /><em>para cada etapa</em></h2>
           </div>
           <div className="highlights__grid">
@@ -84,21 +105,18 @@ export default function Home() {
             </div>
           </div>
           <div className="about-band__content">
-            {/* <p className="section-tag">Quién soy</p> */}
             <h2>Quién <em>soy</em></h2>
             <p>
-              Somos un equipo de matronas, doulas y especialistas en lactancia con más de una década
-              acompañando familias. Creemos que cada parto es único y que cada mamá merece sentirse
-              vista, escuchada y respetada. Somos un equipo de matronas, doulas y especialistas en lactancia con más de una década
-              acompañando familias. Creemos que cada parto es único y que cada mamá merece sentirse
+              Soy matrona, doula y especialista en lactancia con más de una década
+              acompañando familias. Creo que cada parto es único y que cada mamá merece sentirse
               vista, escuchada y respetada.
             </p>
             <p>
-              Nuestra filosofía une la evidencia científica más actualizada con un cuidado humano
+              Mi filosofía une la evidencia científica más actualizada con un cuidado humano
               profundo y un respeto absoluto por tus decisiones.
             </p>
-            <Link to="/servicios" className="btn-primary" style={{ marginTop: '8px' }}>
-              Conoce mis servicios
+            <Link to="/sobre-mi" className="btn-primary" style={{ marginTop: '8px' }}>
+              Conóceme mejor
             </Link>
           </div>
         </div>
@@ -108,24 +126,40 @@ export default function Home() {
       <section className="testimonials">
         <div className="testimonials__inner">
           <div className="testimonials__header">
-            <p className="section-tag">Ellas confían en nosotras</p>
-            <h2>Palabras que<br /><em>nos llenan el alma</em></h2>
+            <p className="section-tag">Ellas confían en mí</p>
+            <h2>Palabras que<br /><em>me llenan el alma</em></h2>
           </div>
-          <div className="testimonials__grid">
-            {testimonials.map((t, i) => (
-              <div key={i} className="testimonial-card">
+
+          <div className={`testimonials__grid ${animating ? 'testimonials__grid--out' : 'testimonials__grid--in'}`}>
+            {visibles.map((t, i) => (
+              <div key={`${page}-${i}`} className="testimonial-card" onClick={() => navigate('/testimonios#' + t.id)}>
                 <div className="testimonial-card__quote">"</div>
-                <p>{t.text}</p>
+                <p>{t.texto.length > 120 ? t.texto.slice(0, 117).trimEnd() + '...' : t.texto}</p>
                 <div className="testimonial-card__author">
-                  <div className="testimonial-card__avatar">{t.name[0]}</div>
+                  <div className="testimonial-card__avatar">{t.nombre[0]}</div>
                   <div>
-                    <strong>{t.name}</strong>
-                    <span>{t.role}</span>
+                    <strong>{t.nombre}</strong>
+                    <span>{t.rol}</span>
                   </div>
                 </div>
               </div>
             ))}
           </div>
+
+          <div className="testimonials__dots">
+            {Array.from({ length: totalPages }).map((_, i) => (
+              <button
+                key={i}
+                className={`testimonials__dot ${i === page ? 'testimonials__dot--active' : ''}`}
+                onClick={() => {
+                  setAnimating(true)
+                  setTimeout(() => { setPage(i); setAnimating(false) }, 500)
+                }}
+                aria-label={`Página ${i + 1}`}
+              />
+            ))}
+          </div>
+
         </div>
       </section>
 
@@ -135,10 +169,11 @@ export default function Home() {
           <div className="cta-banner__orb" />
           <p className="section-tag">¿Lista para comenzar?</p>
           <h2>Da el primer paso hacia<br /><em>una maternidad plena</em></h2>
-          <p>Escríbenos y cuéntanos en qué etapa estás. Estamos aquí para ti.</p>
+          <p>Escríbeme y cuéntame en qué etapa estás. Estoy aquí para ti.</p>
           <Link to="/contacto" className="btn-primary">Contactar ahora</Link>
         </div>
       </section>
+
     </main>
   )
 }

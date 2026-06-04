@@ -1,11 +1,20 @@
 import './Testimonios.css'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
+import { useEffect } from 'react'
 import { testimonios } from '../constants/testimonios'
 
-
-
-
 export default function Testimonios() {
+  const { hash } = useLocation()
+
+  useEffect(() => {
+    if (hash) {
+      // Pequeño delay para que el DOM esté listo
+      setTimeout(() => {
+        const el = document.querySelector(hash)
+        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' })
+      }, 100)
+    }
+  }, [hash])
 
   const destacados = testimonios.filter(t => t.destacado)
   const resto = testimonios.filter(t => !t.destacado)
@@ -51,9 +60,9 @@ export default function Testimonios() {
       {/* Lista de testimonios */}
       <section className="testimonios__lista">
         <div className="testimonios__lista-inner">
-
           {testimonios.map((t, i) => (
             <article
+              id={t.id}
               key={i}
               className={`testimonio-item ${t.destacado ? 'testimonio-item--destacado' : ''} ${i % 2 === 0 ? 'testimonio-item--left' : 'testimonio-item--right'}`}
             >
@@ -80,7 +89,6 @@ export default function Testimonios() {
               )}
             </article>
           ))}
-
         </div>
       </section>
 

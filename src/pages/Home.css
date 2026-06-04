@@ -96,7 +96,6 @@
   animation-delay: 0.5s;
 }
 
-/* Hero visual */
 .hero__visual {
   position: relative;
   display: flex;
@@ -375,9 +374,21 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 28px;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.testimonials__grid--in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.testimonials__grid--out {
+  opacity: 0;
+  transform: translateY(16px);
 }
 
 .testimonial-card {
+  cursor: pointer;
   background: rgba(255,255,255,0.04);
   border: 1px solid rgba(255,255,255,0.08);
   border-radius: var(--radius-lg);
@@ -440,6 +451,35 @@
 .testimonial-card__author span {
   font-size: 0.78rem;
   color: var(--text-light);
+}
+
+.testimonials__dots {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 48px;
+}
+
+.testimonials__dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.25);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.testimonials__dot--active {
+  background: var(--rose);
+  width: 22px;
+  border-radius: 4px;
+}
+
+.testimonials__dot:hover:not(.testimonials__dot--active) {
+  background: rgba(255,255,255,0.5);
 }
 
 /* ── CTA BANNER ── */
