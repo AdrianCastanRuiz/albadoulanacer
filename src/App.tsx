@@ -4,6 +4,7 @@ import CookieBanner from './components/CookieBanner';
 
 export default function App() {
 
+
   return (
     <>
       <BrowserRouter>
