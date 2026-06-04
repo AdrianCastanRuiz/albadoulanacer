@@ -16,8 +16,8 @@ export default function Testimonios() {
     }
   }, [hash])
 
-  const destacados = testimonios.filter(t => t.destacado)
-  const resto = testimonios.filter(t => !t.destacado)
+  // const destacados = testimonios.filter(t => t.destacado)
+  // const resto = testimonios.filter(t => !t.destacado)
 
   return (
     <main className="testimonios">
