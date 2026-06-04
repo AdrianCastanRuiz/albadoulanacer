@@ -24,6 +24,7 @@ export default function Navbar() {
           <li><NavLink to="/sobre-mi" onClick={() => setMenuOpen(false)}>Sobre mí</NavLink></li>
           <li><NavLink to="/servicios" onClick={() => setMenuOpen(false)}>Servicios</NavLink></li>
           <li><NavLink to="/maternidad" onClick={() => setMenuOpen(false)}>Maternidad & Crianza</NavLink></li>
+          <li><NavLink to="/testimonios" onClick={() => setMenuOpen(false)}>Testimonios</NavLink></li>
           <li>
             <NavLink to="/contacto" onClick={() => setMenuOpen(false)} className="navbar__cta">
               Contactar

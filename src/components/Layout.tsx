@@ -8,6 +8,7 @@ import Contacto from '../pages/Contacto'
 import AboutMe from '../pages/AboutMe.tsx'
 import '../styles/globals.css'
 import { useScrollToTop } from '../hooks/useScrollToTop'
+import Testimonios from '../pages/Testimonios.tsx'
 
 
 const Layout = () => {
@@ -23,6 +24,7 @@ const Layout = () => {
                 <Route path="/servicios" element={<Servicios />} />
                 <Route path="/maternidad" element={<Maternidad />} />
                 <Route path="/contacto" element={<Contacto />} />
+                <Route path="/testimonios" element = {<Testimonios />} />
             </Routes>
             <Footer />
         </>

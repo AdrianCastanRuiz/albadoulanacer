@@ -53,3 +53,11 @@ export type CookiePreferences = {
   analiticas: boolean
   marketing: boolean
 }
+
+export type Testimonio = {
+  nombre: string
+  rol: string
+  etapa: string
+  texto: string
+  destacado?: boolean
+}
