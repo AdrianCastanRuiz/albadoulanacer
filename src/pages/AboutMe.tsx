@@ -2,6 +2,7 @@ import './AboutMe.css'
 import { useScrollToTop } from '../hooks/useScrollToTop.ts'
 import { Link } from 'react-router-dom'
 import { formacion, valores } from '../constants/aboutMe.ts'
+import aboutMeImg from "../assets/aboutMe.jpg"
 
 
 
@@ -34,10 +35,11 @@ export default function SobreMi() {
           {/* Foto */}
           <div className="sobre-mi__foto-wrap">
             <div className="sobre-mi__foto-decoration" />
-            <div className="sobre-mi__foto-placeholder">
-              <span>🌸</span>
-              <p>Tu foto aquí</p>
-            </div>
+            <img
+              src={aboutMeImg}
+              alt="Alba Doula Nacer"
+              className="sobre-mi__foto"
+            />
             <div className="sobre-mi__valores">
               {valores.map((v) => (
                 <div key={v.label} className="sobre-mi__valor">

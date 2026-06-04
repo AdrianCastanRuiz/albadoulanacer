@@ -3,6 +3,8 @@ import { useState, useEffect } from 'react'
 import './Home.css'
 import { highlights } from '../constants/home.ts'
 import { testimonios } from '../constants/testimonios'
+import heroImg from "../assets/albadoulanacer.avif"
+import aboutMeImg from "../assets/aboutMe.jpg"
 
 const PER_PAGE = 3
 const INTERVAL = 2000
@@ -55,12 +57,11 @@ export default function Home() {
         <div className="hero__visual">
           <div className="hero__image-wrap">
             <div className="hero__image-decoration" />
-            <div className="hero__image-placeholder">
-              <div className="hero__image-inner">
-                <span>🌸</span>
-                <p>Tu foto aquí</p>
-              </div>
-            </div>
+            <img
+              src={heroImg}
+              alt="Alba Doula Nacer"
+              className="hero__image"
+            />
           </div>
           <div className="hero__badge hero__badge--1">
             <span className="hero__badge-number">+500</span>
@@ -99,10 +100,11 @@ export default function Home() {
       <section className="about-band">
         <div className="about-band__inner">
           <div className="about-band__image">
-            <div className="about-band__image-placeholder">
-              <span>👩‍⚕️</span>
-              <p>Tu foto aquí</p>
-            </div>
+            <img
+              src={aboutMeImg}
+              alt="Alba Doula Nacer"
+              className="about-band__img"
+            />
           </div>
           <div className="about-band__content">
             <h2>Quién <em>soy</em></h2>
