@@ -34,7 +34,7 @@ export default function SobreMi() {
 
           {/* Foto */}
           <div className="sobre-mi__foto-wrap">
-            <div className="sobre-mi__foto-decoration" />
+            {/* <div className="sobre-mi__foto-decoration" /> */}
             <img
               src={aboutMeImg}
               alt="Alba Doula Nacer"
