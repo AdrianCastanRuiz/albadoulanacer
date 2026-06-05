@@ -32,7 +32,10 @@ export default function Home() {
     <main className="home">
 
       {/* Hero */}
-      <section className="hero">
+      <section
+        className="hero"
+        style={{ ['--hero-bg' as string]: `url(${heroImg})` }}
+      >
         <div className="hero__bg">
           <div className="hero__orb hero__orb--1" />
           <div className="hero__orb hero__orb--2" />
