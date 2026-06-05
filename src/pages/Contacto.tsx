@@ -6,9 +6,9 @@ import type { FormState } from '../types'
 
 // ─── Configuración EmailJS ───────────────────────────────────────
 // Crea tu cuenta en https://www.emailjs.com y sustituye estos valores
-const EMAILJS_SERVICE_ID  = import.meta.env.VITE_EMAILJS_SERVICE_ID
+const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID
 const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
-const EMAILJS_PUBLIC_KEY  = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
 // ────────────────────────────────────────────────────────────────
 
 
@@ -42,18 +42,20 @@ export default function Contacto() {
     setStatus('sending')
 
     try {
+
       await emailjs.send(
         EMAILJS_SERVICE_ID,
         EMAILJS_TEMPLATE_ID,
         {
-          nombre:   form.nombre,
-          email:    form.email,
+          nombre: form.nombre,
+          email: form.email,
           telefono: form.telefono || 'No indicado',
-          etapa:    form.etapa    || 'No indicada',
-          mensaje:  form.mensaje,
+          etapa: form.etapa || 'No indicada',
+          mensaje: form.mensaje,
         },
         EMAILJS_PUBLIC_KEY
       )
+
       setStatus('success')
     } catch (error) {
       console.error('Error al enviar:', error)
