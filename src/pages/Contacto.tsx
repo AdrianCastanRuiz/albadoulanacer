@@ -1,7 +1,6 @@
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import emailjs from '@emailjs/browser'
 import './Contacto.css'
-import { useScrollToTop } from '../hooks/useScrollToTop'
 import type { FormState } from '../types'
 
 // ─── Configuración EmailJS ───────────────────────────────────────
@@ -28,8 +27,14 @@ export default function Contacto() {
     nombre: '', email: '', telefono: '', etapa: '', mensaje: ''
   })
   const [status, setStatus] = useState<Status>('idle')
+  const successDivRef = useRef<HTMLDivElement>(null)
 
-  useScrollToTop()
+  useEffect(() => {
+    if (status === 'success') {
+      successDivRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+    }
+  }, [status])
+
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setForm(prev => ({ ...prev, [e.target.name]: e.target.value }))
@@ -57,6 +62,7 @@ export default function Contacto() {
       )
 
       setStatus('success')
+
     } catch (error) {
       console.error('Error al enviar:', error)
       setStatus('error')
@@ -134,7 +140,7 @@ export default function Contacto() {
 
           <div className="contacto__form-wrap">
             {status === 'success' ? (
-              <div className="contacto__success">
+              <div className="contacto__success" ref={successDivRef}>
                 <div className="contacto__success-icon">🌸</div>
                 <h2>¡Mensaje enviado!</h2>
                 <p>
