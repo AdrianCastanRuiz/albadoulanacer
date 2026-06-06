@@ -57,3 +57,6 @@ export type Testimonio = {
   texto: string
   destacado?: boolean
 }
+
+export type FormStatus = 'idle' | 'sending' | 'success' | 'error'
+

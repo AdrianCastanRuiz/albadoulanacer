@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react'
 import emailjs from '@emailjs/browser'
 import './Contacto.css'
-import type { FormState } from '../types'
+import type { FormState, FormStatus } from '../types'
 
 // ─── Configuración EmailJS ───────────────────────────────────────
 // Crea tu cuenta en https://www.emailjs.com y sustituye estos valores
@@ -11,7 +11,6 @@ const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
 // ────────────────────────────────────────────────────────────────
 
 
-type Status = 'idle' | 'sending' | 'success' | 'error'
 
 const etapas = [
   "Estoy embarazada",
@@ -26,14 +25,14 @@ export default function Contacto() {
   const [form, setForm] = useState<FormState>({
     nombre: '', email: '', telefono: '', etapa: '', mensaje: ''
   })
-  const [status, setStatus] = useState<Status>('idle')
+  const [formStatus, setFormStatus] = useState<FormStatus>('idle')
   const successDivRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    if (status === 'success') {
+    if (formStatus === 'success') {
       successDivRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' })
     }
-  }, [status])
+  }, [formStatus])
 
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -44,7 +43,7 @@ export default function Contacto() {
     e.preventDefault()
     if (!form.nombre || !form.email || !form.mensaje) return
 
-    setStatus('sending')
+    setFormStatus('sending')
 
     try {
 
@@ -61,11 +60,11 @@ export default function Contacto() {
         EMAILJS_PUBLIC_KEY
       )
 
-      setStatus('success')
+      setFormStatus('success')
 
     } catch (error) {
       console.error('Error al enviar:', error)
-      setStatus('error')
+      setFormStatus('error')
     }
   }
 
@@ -139,7 +138,7 @@ export default function Contacto() {
           </div>
 
           <div className="contacto__form-wrap">
-            {status === 'success' ? (
+            {formStatus === 'success' ? (
               <div className="contacto__success" ref={successDivRef}>
                 <div className="contacto__success-icon">🌸</div>
                 <h2>¡Mensaje enviado!</h2>
@@ -149,7 +148,7 @@ export default function Contacto() {
                 </p>
                 <button
                   className="btn-outline"
-                  onClick={() => { setStatus('idle'); setForm({ nombre: '', email: '', telefono: '', etapa: '', mensaje: '' }) }}
+                  onClick={() => { setFormStatus('idle'); setForm({ nombre: '', email: '', telefono: '', etapa: '', mensaje: '' }) }}
                 >
                   Enviar otro mensaje
                 </button>
@@ -159,7 +158,7 @@ export default function Contacto() {
                 <h2>Escríbenos</h2>
                 <p>Rellena el formulario y te contactamos pronto.</p>
 
-                {status === 'error' && (
+                {formStatus === 'error' && (
                   <div className="form__error-banner">
                     ⚠️ Ha habido un error al enviar el mensaje. Por favor inténtalo de nuevo o escríbenos directamente a <strong>castanibiza@gmail.com</strong>
                   </div>
@@ -236,9 +235,9 @@ export default function Contacto() {
                     <button
                       className="btn-primary form__btn"
                       onClick={handleSubmit}
-                      disabled={status === 'sending'}
+                      disabled={formStatus === 'sending'}
                     >
-                      {status === 'sending' ? (
+                      {formStatus === 'sending' ? (
                         <>
                           <span className="form__spinner" />
                           Enviando...
