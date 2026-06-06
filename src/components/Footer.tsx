@@ -17,8 +17,10 @@ export default function Footer() {
           <h4>Navegación</h4>
           <ul>
             <li><Link to="/">Inicio</Link></li>
+            <li><Link to="/sobre-mi">Sobre mí</Link></li>
             <li><Link to="/servicios">Servicios</Link></li>
             <li><Link to="/maternidad">Maternidad & Crianza</Link></li>
+            <li><Link to="/testimonios">Testimonios</Link></li>
             <li><Link to="/contacto">Contacto</Link></li>
           </ul>
         </div>
@@ -36,7 +38,7 @@ export default function Footer() {
             </li>
             <li>
               <span>✉️</span>
-              <span>castanibiza@gmail.com</span>
+              <span>albadoulanacer@gmail.com</span>
             </li>
           </ul>
         </div>
