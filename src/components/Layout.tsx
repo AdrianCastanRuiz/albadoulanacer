@@ -9,6 +9,8 @@ import AboutMe from '../pages/AboutMe.tsx'
 import '../styles/globals.css'
 import { useScrollToTop } from '../hooks/useScrollToTop'
 import Testimonios from '../pages/Testimonios.tsx'
+import SocialIcon from './SocialIcon.tsx'
+import { instaGramIcon } from '../constants/social.ts'
 
 
 const Layout = () => {

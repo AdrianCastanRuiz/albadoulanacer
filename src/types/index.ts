@@ -60,3 +60,11 @@ export type Testimonio = {
 
 export type FormStatus = 'idle' | 'sending' | 'success' | 'error'
 
+export type SocialIconType = {
+  name: 'whatsapp' | 'instagram' | 'facebook',
+  href: string,
+  icon: string
+  color: string,
+  label: string
+}
+

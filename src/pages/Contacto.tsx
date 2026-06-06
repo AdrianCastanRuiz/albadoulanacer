@@ -2,6 +2,8 @@ import { useState, useRef, useEffect } from 'react'
 import emailjs from '@emailjs/browser'
 import './Contacto.css'
 import type { FormState, FormStatus } from '../types'
+import SocialIcon from '../components/SocialIcon'
+import { whatsappIcon, instaGramIcon, facebookIcon } from '../constants/social'
 
 // ─── Configuración EmailJS ───────────────────────────────────────
 // Crea tu cuenta en https://www.emailjs.com y sustituye estos valores
@@ -125,9 +127,9 @@ export default function Contacto() {
             <div className="contacto__social">
               <p className="section-tag">Síguenos</p>
               <div className="contacto__social-links">
-                <a href="#" className="social-link">Instagram</a>
-                <a href="#" className="social-link">Facebook</a>
-                <a href="#" className="social-link">WhatsApp</a>
+                <SocialIcon {...whatsappIcon} />
+                <SocialIcon {...instaGramIcon} />
+                <SocialIcon {...facebookIcon} />
               </div>
             </div>
 
