@@ -8,7 +8,7 @@ const whatsappMessage: string = 'Hola Alba! Me gustaría obtener más informaci�
 export const whatsappIcon:SocialIconType = {
 
     name: 'whatsapp',
-    href: `https://wa.me/34612345678?text=${encodeURIComponent(whatsappMessage)}`,
+    href: `https://wa.me/34670521358?text=${encodeURIComponent(whatsappMessage)}`,
     icon: '/icons/whatsapp.svg',
     color: '#25D366',
     label: 'WhatsApp'
