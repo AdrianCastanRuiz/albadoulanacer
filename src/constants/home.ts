@@ -8,7 +8,7 @@ export const highlights : Highlight[] = [
     text: "Acompañamiento personalizado durante todo el proceso gestacional con enfoque holístico."
   },
   {
-    icon: "✦",
+     icon: "✦",
     title: "Parto respetado",
     text: "Preparación para un parto activo y consciente que respete tus deseos y necesidades."
   },
